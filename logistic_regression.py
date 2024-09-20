@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.linear_model import LogisticRegression, LinearRegression
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import argparse
 
 class MyLogisticRegression:
@@ -81,9 +81,9 @@ class MyLogisticRegression:
             precision, recall, f1, support = precision_recall_fscore_support(self.y_train, y_pred_train)
 
         return [accuracy, precision, recall, f1, support]
-
+    '''
     def plot_decision_boundary(self, model, title, filename):
-        '''Plots decision boundaries of linear or logistic regression models.'''
+        #Plots decision boundaries of linear or logistic regression models.
         # mesh grid
         x_min, x_max = self.X_train[:, 0].min() - 1, self.X_train[:, 0].max() + 1
         y_min, y_max = self.X_train[:, 1].min() - 1, self.X_train[:, 1].max() + 1
@@ -103,7 +103,7 @@ class MyLogisticRegression:
         plt.legend()
         plt.savefig(filename)
         plt.clf()
-
+    '''
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Linear Regression')
@@ -116,13 +116,13 @@ if __name__ == '__main__':
     acc = classifier.model_predict_logistic()
 
     # Linear regression
-    classifier.model_fit_linear()
-    linear_filename = f'linear_regression_{args.dataset_num}.png'
-    classifier.plot_decision_boundary(classifier.model_linear, "Linear Regression Decision Boundary", linear_filename)
+    #classifier.model_fit_linear()
+    #linear_filename = f'linear_regression_{args.dataset_num}.png'
+    #classifier.plot_decision_boundary(classifier.model_linear, "Linear Regression Decision Boundary", linear_filename)
 
     # Logistic regression
-    classifier.model_fit_logistic()
-    logistic_filename = f'logistic_regression_{args.dataset_num}.png'
-    classifier.plot_decision_boundary(classifier.model_logistic, "Logistic Regression Decision Boundary", logistic_filename)
+    #classifier.model_fit_logistic()
+    #logistic_filename = f'logistic_regression_{args.dataset_num}.png'
+    #classifier.plot_decision_boundary(classifier.model_logistic, "Logistic Regression Decision Boundary", logistic_filename)
 
     
